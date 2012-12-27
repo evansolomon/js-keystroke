@@ -35,6 +35,7 @@
 
 		checkKeystroke = ( event )->
 			if 'array' == $.type requiredKeys
+				# Make sure activeKeys and requiredKeys contain with exactly the same values, regardless of order
 				0 == $( activeKeys ).not( requiredKeys ).length == $( requiredKeys ).not( activeKeys ).length
 			else
 				# Make sure the right number of keys are pressed and our target key is in it
