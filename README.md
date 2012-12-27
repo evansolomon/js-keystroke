@@ -19,8 +19,8 @@ Options should be passed via an object, e.g. `{arguments: ['foo', 'bar'], contex
 ## Example
 
 ```javascript
-saveSomething = function() {
-	// ...maybe some other code
+saveSomething = function( event ) {
+	// ...do something with the keydown event that triggered the keystroke
 	someSaveAction();
 }
 
