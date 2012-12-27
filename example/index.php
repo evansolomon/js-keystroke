@@ -3,7 +3,7 @@
 	<title>KeyStroke cookies</title>
 	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 	<script src="jquery.cookie.js"></script>
-	<script src="../jquery.keystroke.js"></script>
+	<script src="../jquery.keystroke.min.js"></script>
 	<script src="toggle-cookie.js"></script>
 </head>
 <body>
