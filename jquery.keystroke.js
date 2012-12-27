@@ -10,6 +10,7 @@
       options = $.extend({
         context: this,
         args: [],
+        preventDefault: true,
         modKeys: []
       }, options);
       $document = $(document);
@@ -31,6 +32,9 @@
         }
       });
       execute = function(event) {
+        if (options.preventDefault) {
+          event.preventDefault();
+        }
         return callback.apply(options.context, [event].concat(options.args));
       };
       return checkKeystroke = function(event) {

@@ -2,10 +2,11 @@
 	$.keyStroke = ( requiredKeys, callback, options = {} ) ->
 		# Defaults
 		options = $.extend
-			context : @
-			args    : []
+			context        : @
+			args           : []
+			preventDefault : true
 			# e.g. 'altKey', 'ctrlKey', 'metaKey', 'shiftKey'
-			modKeys : []
+			modKeys        : []
 		, options
 
 		# Cache the document object
@@ -29,6 +30,7 @@
 			activeKeys.splice index, 1 if index > -1
 
 		execute = ( event ) ->
+			event.preventDefault() if options.preventDefault
 			callback.apply( options.context, [event].concat options.args )
 
 		checkKeystroke = ( event )->
