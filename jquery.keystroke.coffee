@@ -22,7 +22,7 @@
 			callback.apply( options.context, options.args ) if checkKeystroke()
 
 		$document.keyup ( event ) ->
-			# Remove this key from activeKeys if its in there
+			# Remove this key from activeKeys if it's in there
 			index = $.inArray event.keyCode, activeKeys
 			activeKeys.splice index, 1 if index > -1
 
