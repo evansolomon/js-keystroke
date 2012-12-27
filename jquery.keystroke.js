@@ -30,7 +30,8 @@
         }
       });
       return checkKeystroke = function() {
-        return $(activeKeys).not(requiredKeys).length === 0 && $(requiredKeys).not(activeKeys).length === 0;
+        var _ref;
+        return (0 === (_ref = $(activeKeys).not(requiredKeys).length) && _ref === $(requiredKeys).not(activeKeys).length);
       };
     };
   })(jQuery);

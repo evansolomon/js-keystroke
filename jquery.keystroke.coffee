@@ -28,6 +28,6 @@
 
 		checkKeystroke = ->
 			# Make sure activeKeys and requiredKeys have exactly the same values
-			$( activeKeys ).not( requiredKeys ).length == 0 and $( requiredKeys ).not( activeKeys ).length == 0
+			0 == $( activeKeys ).not( requiredKeys ).length == $( requiredKeys ).not( activeKeys ).length
 
 ) jQuery
