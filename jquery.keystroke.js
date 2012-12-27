@@ -3,13 +3,14 @@
 
   (function($) {
     return $.keyStroke = function(requiredKeys, callback, options) {
-      var $document, activeKeys, checkKeystroke;
+      var $document, activeKeys, checkKeystroke, execute;
       if (options == null) {
         options = {};
       }
       options = $.extend({
         context: this,
-        args: []
+        args: [],
+        modKeys: []
       }, options);
       $document = $(document);
       activeKeys = [];
@@ -18,8 +19,8 @@
         activeKeys = activeKeys.filter(function(item, index, array) {
           return index === $.inArray(item, array);
         });
-        if (checkKeystroke()) {
-          return callback.apply(options.context, [event].concat(options.args));
+        if (checkKeystroke(event)) {
+          return execute(event);
         }
       });
       $document.keyup(function(event) {
@@ -29,9 +30,29 @@
           return activeKeys.splice(index, 1);
         }
       });
-      return checkKeystroke = function() {
-        var _ref;
-        return (0 === (_ref = $(activeKeys).not(requiredKeys).length) && _ref === $(requiredKeys).not(activeKeys).length);
+      execute = function(event) {
+        return callback.apply(options.context, [event].concat(options.args));
+      };
+      return checkKeystroke = function(event) {
+        var modifier, _i, _len, _ref, _ref1;
+        if ('array' === $.type(requiredKeys)) {
+          return (0 === (_ref = $(activeKeys).not(requiredKeys).length) && _ref === $(requiredKeys).not(activeKeys).length);
+        } else {
+          if (1 + options.modKeys.length !== activeKeys.length) {
+            return false;
+          }
+          if (!($.inArray(requiredKeys, activeKeys) > -1)) {
+            return false;
+          }
+          _ref1 = options.modKeys;
+          for (_i = 0, _len = _ref1.length; _i < _len; _i++) {
+            modifier = _ref1[_i];
+            if (!event[modifier]) {
+              return false;
+            }
+          }
+          return true;
+        }
       };
     };
   })(jQuery);

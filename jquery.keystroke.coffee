@@ -4,6 +4,8 @@
 		options = $.extend
 			context : @
 			args    : []
+			# e.g. 'altKey', 'ctrlKey', 'metaKey', 'shiftKey'
+			modKeys : []
 		, options
 
 		# Cache the document object
@@ -19,15 +21,30 @@
 			activeKeys = activeKeys.filter ( item, index, array ) ->
 				index == $.inArray item, array
 
-			callback.apply( options.context, [event].concat options.args ) if checkKeystroke()
+			execute event if checkKeystroke event
 
 		$document.keyup ( event ) ->
 			# Remove this key from activeKeys if it's in there
 			index = $.inArray event.keyCode, activeKeys
 			activeKeys.splice index, 1 if index > -1
 
-		checkKeystroke = ->
-			# Make sure activeKeys and requiredKeys have exactly the same values
-			0 == $( activeKeys ).not( requiredKeys ).length == $( requiredKeys ).not( activeKeys ).length
+		execute = ( event ) ->
+			callback.apply( options.context, [event].concat options.args )
+
+		checkKeystroke = ( event )->
+			if 'array' == $.type requiredKeys
+				0 == $( activeKeys ).not( requiredKeys ).length == $( requiredKeys ).not( activeKeys ).length
+			else
+				# Make sure the right number of keys are pressed and our target key is in it
+				return false unless 1 + options.modKeys.length == activeKeys.length
+				return false unless $.inArray( requiredKeys, activeKeys ) > -1
+
+				# Make sure all of our mod keys are pressed
+				# Since we know the target key is pressed and the count of keys is correct, this means
+				#   no other mod keys are pressed
+				for modifier in options.modKeys
+					return false unless event[ modifier ]
+
+				true
 
 ) jQuery
