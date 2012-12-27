@@ -7,6 +7,10 @@
 	<script src="toggle-cookie.js"></script>
 </head>
 <body>
+<?php
+	if ( isset( $_COOKIE['toggleableCookie'] ) )
+		echo "<p>You have the secret cookie!!!!</p>";
+?>
 Press CTRL + C to create/delete a cookie called "toggleableCookie".
 </body>
 </html>
