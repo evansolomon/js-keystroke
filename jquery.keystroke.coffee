@@ -19,7 +19,7 @@
 			activeKeys = activeKeys.filter ( item, index, array ) ->
 		    index == $.inArray item, array
 
-			callback.apply( options.context, options.args ) if checkKeystroke()
+			callback.apply( options.context, [event].concat options.args ) if checkKeystroke()
 
 		$document.keyup ( event ) ->
 			# Remove this key from activeKeys if it's in there

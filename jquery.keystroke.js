@@ -19,7 +19,7 @@
           return index === $.inArray(item, array);
         });
         if (checkKeystroke()) {
-          return callback.apply(options.context, options.args);
+          return callback.apply(options.context, [event].concat(options.args));
         }
       });
       $document.keyup(function(event) {

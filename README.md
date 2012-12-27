@@ -11,7 +11,7 @@ A very simple jQuery plugin for binding actions to keyboard combinations.
 * `callback`: A function to call when your keystroke is executed.
 
 **Options**
-* `arguments`: An array of arguments to be passed to your callback when your keystroke is exectuted.
+* `arguments`: An array of arguments to be passed to your callback when your keystroke is exectuted.  The last `keydown`'s `event` object is always passed as the first argument to `callback`.
 * `context`: The value of `this` for your callback.
 
 Options should be passed via an object, e.g. `{arguments: ['foo', 'bar'], context: someValueForThis}`
