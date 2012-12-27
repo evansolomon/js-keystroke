@@ -1,4 +1,4 @@
-# jquery.keystroke
+# jquery.keyStroke
 
 A very simple jQuery plugin for binding actions to keyboard combinations.
 
