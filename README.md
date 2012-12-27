@@ -30,6 +30,12 @@ saveSomething = function() {
 $.keyStroke( [17, 83], saveSomething );
 ```
 
+You can also use anonymous callbacks.
+
+```javascript
+$.keyStroke( [17, 83], function() { 'You pressed CTRL + S!'; } );
+```
+
 ## Installation
 
 Load `jquery.keystroke.js` after jQuery.
