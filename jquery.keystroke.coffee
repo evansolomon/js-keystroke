@@ -17,7 +17,7 @@
 			activeKeys.push event.keyCode
 			# Uniquify activeKeys
 			activeKeys = activeKeys.filter ( item, index, array ) ->
-		    index == $.inArray item, array
+				index == $.inArray item, array
 
 			callback.apply( options.context, [event].concat options.args ) if checkKeystroke()
 
