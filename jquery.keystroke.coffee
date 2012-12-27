@@ -15,9 +15,7 @@
 		# Bind key listeners
 		$document.keydown ( event ) ->
 			activeKeys.push event.keyCode
-			# Uniquify activeKeys
-			activeKeys = activeKeys.filter ( item, index, array ) ->
-				index == $.inArray item, array
+			$.unique activeKeys
 
 			callback.apply( options.context, [event].concat options.args ) if checkKeystroke()
 

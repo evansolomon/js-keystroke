@@ -15,9 +15,7 @@
       activeKeys = [];
       $document.keydown(function(event) {
         activeKeys.push(event.keyCode);
-        activeKeys = activeKeys.filter(function(item, index, array) {
-          return index === $.inArray(item, array);
-        });
+        $.unique(activeKeys);
         if (checkKeystroke()) {
           return callback.apply(options.context, [event].concat(options.args));
         }
