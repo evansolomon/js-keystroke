@@ -4,6 +4,12 @@
 { exec, spawn } = require 'child_process'
 targetFile      = 'jquery.keyStroke'
 
+# deal with errors from child processes
+exerr  = (err, sout,  serr)->
+  process.stdout.write err  if err
+  process.stdout.write sout if sout
+  process.stdout.write serr if serr
+
 task 'compile', 'Compile CoffeeScript file', ->
   exec "coffee -c #{targetFile}.coffee", exerr
 
