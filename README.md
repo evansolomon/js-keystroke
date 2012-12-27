@@ -36,6 +36,8 @@ You can also use anonymous callbacks.
 $.keyStroke( [17, 83], function() { 'You pressed CTRL + S!'; } );
 ```
 
+See `/example/index.html` for an example of toggling a request cookie with a keystroke.
+
 ## Installation
 
 Load `jquery.keystroke.js` after jQuery.
