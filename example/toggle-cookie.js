@@ -15,7 +15,9 @@
       return $('body').append("<p>Now you <strong>" + status + "</strong> the cookie</p>");
     };
     return $(function() {
-      return $.keyStroke([17, 67], toggleCookie);
+      return $.keyStroke(67, toggleCookie, {
+        modKeys: ['ctrlKey']
+      });
     });
   })(jQuery);
 

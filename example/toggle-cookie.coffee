@@ -13,5 +13,6 @@
 	# Bind to ready
 	$ ->
 		# ctrl + c
-		$.keyStroke [ 17, 67 ], toggleCookie
+		$.keyStroke 67, toggleCookie,
+			modKeys: [ 'ctrlKey' ]
 ) jQuery
