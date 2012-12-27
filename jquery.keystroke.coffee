@@ -22,14 +22,14 @@
 			activeKeys = activeKeys.filter ( item, index, array ) ->
 				index == $.inArray item, array
 
-			execute event if checkKeystroke event
+			executeCallback event if checkKeystroke event
 
 		$document.keyup ( event ) ->
 			# Remove this key from activeKeys if it's in there
 			index = $.inArray event.keyCode, activeKeys
 			activeKeys.splice index, 1 if index > -1
 
-		execute = ( event ) ->
+		executeCallback = ( event ) ->
 			event.preventDefault() if options.preventDefault
 			callback.apply( options.context, [ event ].concat options.args )
 
