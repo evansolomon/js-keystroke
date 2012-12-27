@@ -3,7 +3,7 @@
 
   (function($) {
     return $.keyStroke = function(requiredKeys, callback, options) {
-      var $document, activeKeys, checkKeystroke, execute;
+      var $document, activeKeys, checkKeystroke, executeCallback;
       if (options == null) {
         options = {};
       }
@@ -21,7 +21,7 @@
           return index === $.inArray(item, array);
         });
         if (checkKeystroke(event)) {
-          return execute(event);
+          return executeCallback(event);
         }
       });
       $document.keyup(function(event) {
@@ -31,7 +31,7 @@
           return activeKeys.splice(index, 1);
         }
       });
-      execute = function(event) {
+      executeCallback = function(event) {
         if (options.preventDefault) {
           event.preventDefault();
         }
