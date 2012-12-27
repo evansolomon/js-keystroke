@@ -31,7 +31,7 @@
 
 		execute = ( event ) ->
 			event.preventDefault() if options.preventDefault
-			callback.apply( options.context, [event].concat options.args )
+			callback.apply( options.context, [ event ].concat options.args )
 
 		checkKeystroke = ( event )->
 			if 'array' == $.type requiredKeys
