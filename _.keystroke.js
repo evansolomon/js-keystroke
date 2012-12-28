@@ -16,13 +16,13 @@
       activeKeys = [];
       eventMethod = document.addEventListener ? 'addEventListener' : 'attachEvent';
       document[eventMethod]('keydown', function(event) {
-        activeKeys = _.union(activeKeys, event.keyCode);
+        activeKeys = _.union(activeKeys, event.keyCode || event.which);
         if (checkKeystroke(event)) {
           return executeCallback(event);
         }
       });
       document[eventMethod]('keyup', function(event) {
-        return activeKeys = _.without(activeKeys, event.keyCode);
+        return activeKeys = _.without(activeKeys, event.keyCode || event.which);
       });
       executeCallback = function(event) {
         if (options.preventDefault) {
