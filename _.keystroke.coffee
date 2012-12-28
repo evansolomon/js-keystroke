@@ -16,11 +16,11 @@ _.mixin
 
 		# Bind key listeners
 		document[ eventMethod ] 'keydown', ( event ) ->
-			activeKeys = _.union activeKeys, event.keyCode || event.which
+			activeKeys = _.union activeKeys, event.key || event.keyCode || event.which
 			executeCallback event if checkKeystroke event
 
 		document[ eventMethod ] 'keyup', ( event ) ->
-			activeKeys = _.without activeKeys, event.keyCode || event.which
+			activeKeys = _.without activeKeys, event.key || event.keyCode || event.which
 
 		executeCallback = ( event ) ->
 			event.preventDefault() if options.preventDefault
