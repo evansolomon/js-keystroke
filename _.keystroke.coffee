@@ -12,7 +12,7 @@ _.mixin
 		activeKeys = []
 
 		# IE compat
-		eventMethod = if document.addEventListener then 'addEventListener'  else 'attachEvent'
+		eventMethod = if document.addEventListener then 'addEventListener' else 'attachEvent'
 
 		# Bind key listeners
 		document[ eventMethod ] 'keydown', ( event ) ->
