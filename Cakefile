@@ -2,7 +2,7 @@
 # Requires coffee-script and uglifyjs
 
 { exec, spawn } = require 'child_process'
-targetFiles     = ['jquery.keyStroke', '_.keyStroke']
+targetFiles     = ['jquery.keystroke', '_.keystroke']
 
 # deal with errors from child processes
 exerr  = (err, sout,  serr)->
