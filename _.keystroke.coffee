@@ -11,12 +11,15 @@ _.mixin
 		# Keep track of pressed keys
 		activeKeys = []
 
+		# IE compat
+		eventMethod = if document.addEventListener then 'addEventListener'  else 'attachEvent'
+
 		# Bind key listeners
-		document.addEventListener 'keydown', ( event ) ->
-			activeKeys = _.union activeKeys, [ event.keyCode ]
+		document[ eventMethod ] 'keydown', ( event ) ->
+			activeKeys = _.union activeKeys, event.keyCode
 			executeCallback event if checkKeystroke event
 
-		document.addEventListener 'keyup', ( event ) ->
+		document[ eventMethod ] 'keyup', ( event ) ->
 			activeKeys = _.without activeKeys, event.keyCode
 
 		executeCallback = ( event ) ->

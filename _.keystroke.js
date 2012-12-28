@@ -3,7 +3,7 @@
 
   _.mixin({
     keyStroke: function(requiredKeys, callback, options) {
-      var activeKeys, checkKeystroke, executeCallback;
+      var activeKeys, checkKeystroke, eventMethod, executeCallback;
       if (options == null) {
         options = {};
       }
@@ -14,13 +14,14 @@
         modKeys: []
       });
       activeKeys = [];
-      document.addEventListener('keydown', function(event) {
-        activeKeys = _.union(activeKeys, [event.keyCode]);
+      eventMethod = document.addEventListener ? 'addEventListener' : 'attachEvent';
+      document[eventMethod]('keydown', function(event) {
+        activeKeys = _.union(activeKeys, event.keyCode);
         if (checkKeystroke(event)) {
           return executeCallback(event);
         }
       });
-      document.addEventListener('keyup', function(event) {
+      document[eventMethod]('keyup', function(event) {
         return activeKeys = _.without(activeKeys, event.keyCode);
       });
       executeCallback = function(event) {
