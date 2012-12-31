@@ -43,5 +43,5 @@ $.keyStroke( 83, function() { 'You pressed ALT + S!'; }, { modKeys: [ 'altKey' ]
 See `/example/index.html` for an example of toggling a request cookie with a keystroke.
 
 ## Installation
-c
+
 Load `jquery.keystroke.js` after jQuery, or `_.keystroke.js` after Underscore.  Both plugins come with a matching `min.js` version.
