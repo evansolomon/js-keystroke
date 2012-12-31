@@ -4,7 +4,7 @@ A jQuery plugin and Underscore mixin for binding actions to keyboard combination
 
 ## Usage
 
-`$.keyStroke()` and `_.keyStroke` take two required arguments (`requriedKeys` and `callback`) and a third optional (`options`) argument.
+`$.keyStroke()` and `_.keyStroke()` take two required arguments (`requriedKeys` and `callback`) and a third optional (`options`) argument.
 
 **Required**
 * `requiredKeys`: Array of JavaScript keyCodes for your keystroke.  Can be an integer (rather than an array) if you only want to use one keyCode, not including modifier keys passed in the `options` argument.  Order is *not* important, and ordered keystrokes are not supported.  [This](http://www.w3.org/2002/09/tests/keys.html) page is helpful for finding keyCodes.
