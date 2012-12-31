@@ -1,10 +1,10 @@
-# jquery.keyStroke
+# JS keyStroke
 
-A very simple jQuery plugin for binding actions to keyboard combinations.
+A jQuery plugin and Underscore mixin for binding actions to keyboard combinations.
 
 ## Usage
 
-`$.keyStroke()` takes two required arguments (`requriedKeys` and `callback`) and a third optional (`options`) argument.
+`$.keyStroke()` and `_.keyStroke` take two required arguments (`requriedKeys` and `callback`) and a third optional (`options`) argument.
 
 **Required**
 * `requiredKeys`: Array of JavaScript keyCodes for your keystroke.  Can be an integer (rather than an array) if you only want to use one keyCode, not including modifier keys passed in the `options` argument.  Order is *not* important, and ordered keystrokes are not supported.  [This](http://www.w3.org/2002/09/tests/keys.html) page is helpful for finding keyCodes.
@@ -29,6 +29,9 @@ saveSomething = function( event ) {
 // Save something on ctrl + s
 // s = 83
 $.keyStroke( 83, saveSomething, { modKeys: [ 'ctrlKey' ] } );
+
+// Do the same thing with Underscore instead of jQuery
+_.keyStroke( 83, saveSomething, { modKeys: [ 'ctrlKey' ] } );
 ```
 
 You can also use anonymous callbacks.
@@ -40,5 +43,5 @@ $.keyStroke( 83, function() { 'You pressed ALT + S!'; }, { modKeys: [ 'altKey' ]
 See `/example/index.html` for an example of toggling a request cookie with a keystroke.
 
 ## Installation
-
-Load `jquery.keystroke.js` after jQuery.
+c
+Load `jquery.keystroke.js` after jQuery, or `_.keystroke.js` after Underscore.  Both plugins come with a matching `min.js` version.
