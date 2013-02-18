@@ -4,5 +4,8 @@
 { exec, spawn } = require 'child_process'
 targetFiles     = ['jquery.keystroke', '_.keystroke']
 
+build = ( file ) ->
+	exec "coffee -c #{file}.coffee && uglifyjs #{file}.js -cm -o #{file}.min.js"
+
 task 'build', 'compile and minify', ->
-	exec "coffee -c #{file}.coffee && uglifyjs #{file}.js -cm -o #{file}.min.js" for file in targetFiles
+	build file for file in targetFiles
