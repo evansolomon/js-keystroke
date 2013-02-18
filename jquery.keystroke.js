@@ -3,7 +3,7 @@
 
   (function($) {
     return $.fn.keyStroke = $.keyStroke = function(requiredKeys, callback, options) {
-      var $document, activeKeys, checkKeystroke, executeCallback;
+      var $document, activeKeys, checkKeystroke, executeCallback, namespace;
       if (options == null) {
         options = {};
       }
@@ -15,7 +15,10 @@
       }, options);
       $document = $(document);
       activeKeys = [];
-      $document.on('keydown.keyStroke', function(event) {
+      namespace = $.map([requiredKeys, options.modKeys], function(item) {
+        return item;
+      }).join('-');
+      $document.on("keydown.JQkeyStroke.JQkeyStroke-" + namespace, function(event) {
         activeKeys.push(event.keyCode);
         activeKeys = activeKeys.filter(function(item, index, array) {
           return index === $.inArray(item, array);
@@ -24,7 +27,7 @@
           return executeCallback(event);
         }
       });
-      $document.on('keyup.keyStroke', function(event) {
+      $document.on("keyup.JQkeyStroke.JQkeyStroke-" + namespace, function(event) {
         var index;
         index = $.inArray(event.keyCode, activeKeys);
         if (index > -1) {

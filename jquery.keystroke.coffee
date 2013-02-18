@@ -15,8 +15,13 @@
 		# Keep track of pressed keys
 		activeKeys = []
 
+		# Keystroke-specific namespace, e.g. JQkeyStroke-67-ctrlKey
+		namespace = $.map [ requiredKeys, options.modKeys ], ( item ) ->
+			item
+		.join '-'
+
 		# Bind key listeners
-		$document.on 'keydown.JQkeyStroke', ( event ) ->
+		$document.on "keydown.JQkeyStroke.JQkeyStroke-#{namespace}", ( event ) ->
 			activeKeys.push event.keyCode
 			# Uniquify activeKeys
 			activeKeys = activeKeys.filter ( item, index, array ) ->
@@ -24,7 +29,7 @@
 
 			executeCallback event if checkKeystroke event
 
-		$document.on 'keyup.JQkeyStroke', ( event ) ->
+		$document.on "keyup.JQkeyStroke.JQkeyStroke-#{namespace}", ( event ) ->
 			# Remove this key from activeKeys if it's in there
 			index = $.inArray event.keyCode, activeKeys
 			activeKeys.splice index, 1 if index > -1
