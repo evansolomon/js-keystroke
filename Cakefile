@@ -5,7 +5,7 @@
 targetFiles     = ['jquery.keystroke', '_.keystroke']
 
 build = ( file ) ->
-	exec "coffee -c #{file}.coffee && uglifyjs #{file}.js -cm -o #{file}.min.js"
+	exec "coffee -o lib -c src/#{file}.coffee && uglifyjs lib/#{file}.js -cm -o min/#{file}.min.js"
 
 task 'build', 'compile and minify', ->
 	build file for file in targetFiles
