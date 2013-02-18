@@ -15,7 +15,7 @@
       }, options);
       $document = $(document);
       activeKeys = [];
-      $document.keydown(function(event) {
+      $document.on('keydown.keyStroke', function(event) {
         activeKeys.push(event.keyCode);
         activeKeys = activeKeys.filter(function(item, index, array) {
           return index === $.inArray(item, array);
@@ -24,7 +24,7 @@
           return executeCallback(event);
         }
       });
-      $document.keyup(function(event) {
+      $document.on('keyup.keyStroke', function(event) {
         var index;
         index = $.inArray(event.keyCode, activeKeys);
         if (index > -1) {

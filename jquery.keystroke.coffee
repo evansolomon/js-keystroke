@@ -16,7 +16,7 @@
 		activeKeys = []
 
 		# Bind key listeners
-		$document.keydown ( event ) ->
+		$document.on 'keydown.JQkeyStroke', ( event ) ->
 			activeKeys.push event.keyCode
 			# Uniquify activeKeys
 			activeKeys = activeKeys.filter ( item, index, array ) ->
@@ -24,7 +24,7 @@
 
 			executeCallback event if checkKeystroke event
 
-		$document.keyup ( event ) ->
+		$document.on 'keyup.JQkeyStroke', ( event ) ->
 			# Remove this key from activeKeys if it's in there
 			index = $.inArray event.keyCode, activeKeys
 			activeKeys.splice index, 1 if index > -1
