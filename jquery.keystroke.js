@@ -2,7 +2,7 @@
 (function() {
 
   (function($) {
-    return $.keyStroke = function(requiredKeys, callback, options) {
+    return $.fn.keyStroke = $.keyStroke = function(requiredKeys, callback, options) {
       var $document, activeKeys, checkKeystroke, executeCallback;
       if (options == null) {
         options = {};
@@ -37,7 +37,7 @@
         }
         return callback.apply(options.context, [event].concat(options.args));
       };
-      return checkKeystroke = function(event) {
+      checkKeystroke = function(event) {
         var modifier, _i, _len, _ref, _ref1;
         if ('array' === $.type(requiredKeys)) {
           return (0 === (_ref = $(activeKeys).not(requiredKeys).length) && _ref === $(requiredKeys).not(activeKeys).length);
@@ -58,6 +58,7 @@
           return true;
         }
       };
+      return this;
     };
   })(jQuery);
 

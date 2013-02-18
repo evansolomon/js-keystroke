@@ -1,5 +1,5 @@
 ( ( $ ) ->
-	$.keyStroke = ( requiredKeys, callback, options = {} ) ->
+	$.fn.keyStroke = $.keyStroke = ( requiredKeys, callback, options = {} ) ->
 		# Defaults
 		options = $.extend
 			context        : @
@@ -50,4 +50,5 @@
 
 				true
 
+		@
 ) jQuery
