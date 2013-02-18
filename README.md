@@ -11,12 +11,12 @@ A jQuery plugin and Underscore mixin for binding actions to keyboard combination
 * `callback`: A function to call when your keystroke is executed.
 
 **Options**
-* `arguments`: An array of arguments to be passed to your callback when your keystroke is exectuted.  The last `keydown`'s `event` object is always passed as the first argument to `callback`.
+* `args`: An array of arguments to be passed to your callback when your keystroke is exectuted.  The last `keydown`'s `event` object is always passed as the first argument to `callback`. Note: this has *nothing* to do with JavaScript's `arguments` object.
 * `context`: The value of `this` for your callback.
 * `preventDefault`: Whether or not to `preventDefault()` on the `keydown` event that triggers your keystroke. Defaults to `true`.
 * `modKeys`: Array of strings that match `keydown` event properties and can be used to include modifier keys in your keystroke.  The `modKeys` option is only used if `requiredKeys` is a single (non-array) value, otherwise it is ignored.  Examples: `'altKey'`, `'ctrlKey'`, `'metaKey'`, `'shiftKey'`
 
-Options should be passed via an object, e.g. `{arguments: ['foo', 'bar'], context: someValueForThis, modKeys: ['altKey']}`
+Options should be passed via an object, e.g. `{args: ['foo', 'bar'], context: someValueForThis, modKeys: ['altKey']}`
 
 ## Example
 
