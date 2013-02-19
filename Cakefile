@@ -21,8 +21,7 @@ prependBanner = ( targetFile ) ->
 
 build = ( file ) ->
 	exec "coffee -o lib -c src/#{file}.coffee && uglifyjs lib/#{file}.js -cm -o min/#{file}.min.js", ->
-		for dir, ext of { lib: 'js', min: 'min.js' }
-			prependBanner "#{dir}/#{file}.#{ext}"
+		prependBanner "#{dir}/#{file}.#{ext}" for dir, ext of { lib: 'js', min: 'min.js' }
 
 task 'build', 'compile and minify', ->
 	build file for file in targetFiles
