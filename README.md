@@ -40,7 +40,7 @@ You can also use anonymous callbacks.
 $.keyStroke( 83, function() { 'You pressed ALT + S!'; }, { modKeys: [ 'altKey' ] } );
 ```
 
-See `/example/index.html` for an example of toggling a request cookie with a keystroke.
+See `/example/index.php` for an example of toggling a request cookie with a keystroke.
 
 ## Installation
 
