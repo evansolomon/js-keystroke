@@ -32,6 +32,33 @@
         <p>Press <code>shift</code> + <code>I</code> to increase the counter, or <code>shift</code> + <code>D</code> to decrease it.</p>
         <div id="counter">0</div>
 
+<div class="highlight"><pre><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">counter</span><span class="p">;</span>
+
+  <span class="nx">counter</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">change</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">diff</span> <span class="p">)</span> <span class="p">{</span>
+      <span class="kd">var</span> <span class="nx">el</span><span class="p">,</span> <span class="nx">number</span><span class="p">;</span>
+
+      <span class="nx">el</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'counter'</span><span class="p">);</span>
+      <span class="nx">number</span> <span class="o">=</span> <span class="nb">parseInt</span><span class="p">(</span> <span class="nx">el</span><span class="p">.</span><span class="nx">innerText</span><span class="p">,</span> <span class="mi">10</span> <span class="p">);</span>
+      <span class="k">return</span> <span class="nx">el</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="nx">number</span> <span class="o">+</span> <span class="nx">diff</span><span class="p">;</span>
+    <span class="p">},</span>
+
+    <span class="nx">increment</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="nx">counter</span><span class="p">.</span><span class="nx">change</span><span class="p">(</span> <span class="mi">1</span> <span class="p">);</span>
+    <span class="p">},</span>
+
+    <span class="nx">decrement</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="nx">counter</span><span class="p">.</span><span class="nx">change</span><span class="p">(</span> <span class="o">-</span><span class="mi">1</span> <span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">};</span>
+
+  <span class="c1">// 68 = D</span>
+  <span class="nx">_</span><span class="p">.</span><span class="nx">keyStroke</span><span class="p">(</span> <span class="mi">68</span><span class="p">,</span> <span class="nx">counter</span><span class="p">.</span><span class="nx">decrement</span><span class="p">,</span> <span class="p">{</span> <span class="nx">modKeys</span><span class="o">:</span> <span class="p">[</span><span class="s1">'shiftKey'</span><span class="p">]</span> <span class="p">}</span> <span class="p">);</span>
+  <span class="c1">// 73 = I</span>
+  <span class="nx">_</span><span class="p">.</span><span class="nx">keyStroke</span><span class="p">(</span> <span class="mi">73</span><span class="p">,</span> <span class="nx">counter</span><span class="p">.</span><span class="nx">increment</span><span class="p">,</span> <span class="p">{</span> <span class="nx">modKeys</span><span class="o">:</span> <span class="p">[</span><span class="s1">'shiftKey'</span><span class="p">]</span> <span class="p">}</span> <span class="p">);</span>
+<span class="p">}).</span><span class="nx">call</span><span class="p">();</span>
+</pre></div>
         <h2>Usage</h2>
 
 <p><code>$.keyStroke()</code> and <code>_.keyStroke()</code> take two required arguments (<code>requriedKeys</code> and <code>callback</code>) and a third optional (<code>options</code>) argument.</p>
