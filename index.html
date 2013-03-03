@@ -1,0 +1,90 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>JS keyStroke by evansolomon</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>JS keyStroke</h1>
+        <p>jQuery plugin and underscore mixin for binding callbacks to keyboard shortcuts</p>
+
+        <p class="view"><a href="https://github.com/evansolomon/js-keystroke">View the Project on GitHub <small>evansolomon/js-keystroke</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/evansolomon/js-keystroke/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/evansolomon/js-keystroke/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/evansolomon/js-keystroke">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h2>Usage</h2>
+
+<p><code>$.keyStroke()</code> and <code>_.keyStroke()</code> take two required arguments (<code>requriedKeys</code> and <code>callback</code>) and a third optional (<code>options</code>) argument.</p>
+
+<p><strong>Required</strong></p>
+
+<ul>
+<li>
+<code>requiredKeys</code>: Array of JavaScript keyCodes for your keystroke.  Can be an integer (rather than an array) if you only want to use one keyCode, not including modifier keys passed in the <code>options</code> argument.  Order is <em>not</em> important, and ordered keystrokes are not supported.  <a href="http://www.w3.org/2002/09/tests/keys.html">This</a> page is helpful for finding keyCodes.</li>
+<li>
+<code>callback</code>: A function to call when your keystroke is executed.</li>
+</ul><p><strong>Options</strong></p>
+
+<ul>
+<li>
+<code>args</code>: An array of arguments to be passed to your callback when your keystroke is exectuted.  The last <code>keydown</code>'s <code>event</code> object is always passed as the first argument to <code>callback</code>. Note: this has <em>nothing</em> to do with JavaScript's <code>arguments</code> object.</li>
+<li>
+<code>context</code>: The value of <code>this</code> for your callback.</li>
+<li>
+<code>preventDefault</code>: Whether or not to <code>preventDefault()</code> on the <code>keydown</code> event that triggers your keystroke. Defaults to <code>true</code>.</li>
+<li>
+<code>modKeys</code>: Array of strings that match <code>keydown</code> event properties and can be used to include modifier keys in your keystroke.  The <code>modKeys</code> option is only used if <code>requiredKeys</code> is a single (non-array) value, otherwise it is ignored.  Examples: <code>'altKey'</code>, <code>'ctrlKey'</code>, <code>'metaKey'</code>, <code>'shiftKey'</code>
+</li>
+</ul><p>Options should be passed via an object, e.g. <code>{args: ['foo', 'bar'], context: someValueForThis, modKeys: ['altKey']}</code></p>
+
+<h2>Example</h2>
+
+<div class="highlight"><pre><span class="nx">saveSomething</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">event</span> <span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// ...do something with the keydown event that triggered the keystroke</span>
+    <span class="nx">someSaveAction</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="c1">// Save something on ctrl + s</span>
+<span class="c1">// s = 83</span>
+<span class="nx">$</span><span class="p">.</span><span class="nx">keyStroke</span><span class="p">(</span> <span class="mi">83</span><span class="p">,</span> <span class="nx">saveSomething</span><span class="p">,</span> <span class="p">{</span> <span class="nx">modKeys</span><span class="o">:</span> <span class="p">[</span> <span class="s1">'ctrlKey'</span> <span class="p">]</span> <span class="p">}</span> <span class="p">);</span>
+
+<span class="c1">// Do the same thing with Underscore instead of jQuery</span>
+<span class="nx">_</span><span class="p">.</span><span class="nx">keyStroke</span><span class="p">(</span> <span class="mi">83</span><span class="p">,</span> <span class="nx">saveSomething</span><span class="p">,</span> <span class="p">{</span> <span class="nx">modKeys</span><span class="o">:</span> <span class="p">[</span> <span class="s1">'ctrlKey'</span> <span class="p">]</span> <span class="p">}</span> <span class="p">);</span>
+</pre></div>
+
+<p>You can also use anonymous callbacks.</p>
+
+<div class="highlight"><pre><span class="nx">$</span><span class="p">.</span><span class="nx">keyStroke</span><span class="p">(</span> <span class="mi">83</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span> <span class="s1">'You pressed ALT + S!'</span><span class="p">;</span> <span class="p">},</span> <span class="p">{</span> <span class="nx">modKeys</span><span class="o">:</span> <span class="p">[</span> <span class="s1">'altKey'</span> <span class="p">]</span> <span class="p">}</span> <span class="p">);</span>
+</pre></div>
+
+<p>See <code>/example/index.php</code> for an example of toggling a request cookie with a keystroke.</p>
+
+<h2>Installation</h2>
+
+<p>Load <code>jquery.keystroke.js</code> after jQuery, or <code>_.keystroke.js</code> after Underscore.  Both plugins come with a matching <code>min.js</code> version.</p>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/evansolomon">evansolomon</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
