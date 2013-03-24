@@ -1,1 +1,1 @@
-include: ['_.keystroke.html']
+include: ['_.keystroke.html', '_.keystroke.min.js']
