@@ -55,5 +55,5 @@
 
 				true
 
-		@
+		return this
 ) jQuery
