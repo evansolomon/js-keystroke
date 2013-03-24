@@ -25,3 +25,6 @@ build = ( file ) ->
 
 task 'build', 'compile and minify', ->
 	build file for file in targetFiles
+
+task 'docs', 'build documentation', ->
+	exec "docco src/*.coffee"
