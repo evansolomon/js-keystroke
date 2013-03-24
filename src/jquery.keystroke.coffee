@@ -118,7 +118,7 @@
         for modifier in options.modKeys
           return false unless event[ modifier ]
 
-        true
+        return true
 
 
     # ### jQuery
