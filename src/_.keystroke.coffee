@@ -54,6 +54,10 @@ _.mixin
     document[ eventMethod ] 'keyup', ( event ) ->
       activeKeys = _.without activeKeys, event.key || event.keyCode || event.which
 
+    # When the window regains focus we have no way to tell what keys
+    # might be pressed, so clear our queue
+    window[ eventMethod ] 'focus', ->
+      activeKeys = []
 
     # ### Activated keystroke helpers
     # -------------------------------

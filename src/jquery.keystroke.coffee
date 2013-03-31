@@ -72,6 +72,11 @@
       index = $.inArray event.keyCode, activeKeys
       activeKeys.splice index, 1 if index > -1
 
+    # When the window regains focus we have no way to tell what keys
+    # might be pressed, so clear our queue
+    $( window ).on 'focus', ->
+      activeKeys = []
+
 
     # ### Activated keystroke helpers
     # -------------------------------
