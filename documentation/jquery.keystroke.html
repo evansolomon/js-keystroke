@@ -273,8 +273,25 @@ Then remove duplicate entries in the <code>activeKeys</code> list, just in case<
         <li id="section-15">
             <div class="annotation">
               
-              <div class="pilwrap for-h3">
+              <div class="pilwrap ">
                 <a class="pilcrow" href="#section-15">&#182;</a>
+              </div>
+              <p>When the window regains focus we have no way to tell what keys
+might be pressed, so clear our queue</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    $( window ).<span class="literal">on</span> <span class="string">'focus'</span>, -&gt;
+      activeKeys = []</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-16">
+            <div class="annotation">
+              
+              <div class="pilwrap for-h3">
+                <a class="pilcrow" href="#section-16">&#182;</a>
               </div>
               <h3>Activated keystroke helpers</h3>
 <hr>
@@ -284,11 +301,11 @@ Then remove duplicate entries in the <code>activeKeys</code> list, just in case<
         </li>
         
         
-        <li id="section-16">
+        <li id="section-17">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-16">&#182;</a>
+                <a class="pilcrow" href="#section-17">&#182;</a>
               </div>
               <p>Generic wrapper to execute the <code>callback</code> passed to <code>$.keyStroke</code></p>
 <p>Takes an <code>event</code> object, which will always be the event that triggered the keystroke</p>
@@ -300,11 +317,11 @@ Then remove duplicate entries in the <code>activeKeys</code> list, just in case<
         </li>
         
         
-        <li id="section-17">
+        <li id="section-18">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-17">&#182;</a>
+                <a class="pilcrow" href="#section-18">&#182;</a>
               </div>
               <p>If the <code>preventDefault</code> option was not disabled, prevent it on the keystroke&#39;s <code>event</code></p>
 <p>This is useful for keystroke&#39;s that might conflict with other browser behavior</p>
@@ -317,11 +334,11 @@ Then remove duplicate entries in the <code>activeKeys</code> list, just in case<
         </li>
         
         
-        <li id="section-18">
+        <li id="section-19">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-18">&#182;</a>
+                <a class="pilcrow" href="#section-19">&#182;</a>
               </div>
               <p>Run the callback</p>
 <p>Uses the <code>context</code> option if one is present, otherwise uses the context at the time
@@ -336,11 +353,11 @@ Then remove duplicate entries in the <code>activeKeys</code> list, just in case<
         </li>
         
         
-        <li id="section-19">
+        <li id="section-20">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-19">&#182;</a>
+                <a class="pilcrow" href="#section-20">&#182;</a>
               </div>
               <p>Generic wrapper to check whether or not the keystroke has been activated</p>
 
@@ -352,11 +369,11 @@ Then remove duplicate entries in the <code>activeKeys</code> list, just in case<
         </li>
         
         
-        <li id="section-20">
+        <li id="section-21">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-20">&#182;</a>
+                <a class="pilcrow" href="#section-21">&#182;</a>
               </div>
               <p>Make sure activeKeys and requiredKeys contain with exactly the same values, regardless of order</p>
 
@@ -369,11 +386,11 @@ Then remove duplicate entries in the <code>activeKeys</code> list, just in case<
         </li>
         
         
-        <li id="section-21">
+        <li id="section-22">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-21">&#182;</a>
+                <a class="pilcrow" href="#section-22">&#182;</a>
               </div>
               <p>Make sure the right number of keys are pressed and our target key is in it</p>
 
@@ -385,11 +402,11 @@ Then remove duplicate entries in the <code>activeKeys</code> list, just in case<
         </li>
         
         
-        <li id="section-22">
+        <li id="section-23">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-22">&#182;</a>
+                <a class="pilcrow" href="#section-23">&#182;</a>
               </div>
               <p>Make sure all of our mod keys are pressed</p>
 <p>Since we know the target key is pressed and the count of keys is correct, this means
@@ -405,11 +422,11 @@ Then remove duplicate entries in the <code>activeKeys</code> list, just in case<
         </li>
         
         
-        <li id="section-23">
+        <li id="section-24">
             <div class="annotation">
               
               <div class="pilwrap for-h3">
-                <a class="pilcrow" href="#section-23">&#182;</a>
+                <a class="pilcrow" href="#section-24">&#182;</a>
               </div>
               <h3>jQuery</h3>
 <hr>
@@ -419,11 +436,11 @@ Then remove duplicate entries in the <code>activeKeys</code> list, just in case<
         </li>
         
         
-        <li id="section-24">
+        <li id="section-25">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-24">&#182;</a>
+                <a class="pilcrow" href="#section-25">&#182;</a>
               </div>
               <p>Return the current context</p>
 <p>This is used to make <code>keyStroke</code> chainable</p>
@@ -435,11 +452,11 @@ Then remove duplicate entries in the <code>activeKeys</code> list, just in case<
         </li>
         
         
-        <li id="section-25">
+        <li id="section-26">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-25">&#182;</a>
+                <a class="pilcrow" href="#section-26">&#182;</a>
               </div>
               <p>Pass in the global <code>jQuery</code></p>
 
