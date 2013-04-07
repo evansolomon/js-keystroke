@@ -5,7 +5,16 @@
 ( ( $ ) ->
 
   # Make keyStroke chainable *and* independently accessible
-  $.fn.keyStroke = $.keyStroke = ( requiredKeys, callback, options = {} ) ->
+  $.fn.keyStroke = $.keyStroke = ( requiredKeys, options, callback ) ->
+
+    # ### Optional argument
+    # ---------------------
+
+    # Make `options` argument optional but keep `callback` as the last argument.
+    if arguments.length is 2
+      callback = options
+      options = {}
+
 
     # ### Options
     # -----------

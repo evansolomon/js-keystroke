@@ -3,7 +3,16 @@
 
 # Bind to the `_` namespace
 _.mixin
-  keyStroke: ( requiredKeys, callback, options = {} ) ->
+  keyStroke: ( requiredKeys, options, callback ) ->
+
+    # ### Optional argument
+    # ---------------------
+
+    # Make `options` argument optional but keep `callback` as the last argument.
+    if arguments.length is 2
+      callback = options
+      options = {}
+
 
     # ### Options
     # -----------

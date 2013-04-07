@@ -4,7 +4,15 @@ A jQuery plugin and Underscore mixin for binding actions to keyboard combination
 
 ## Usage
 
-`$.keyStroke()` and `_.keyStroke()` take two required arguments (`requriedKeys` and `callback`) and a third optional (`options`) argument.
+`$.keyStroke()` and `_.keyStroke()` take three arguments: `requriedKeys`, `options`, and `callback`. The `options` argument is optional. The last argument you pass will **always** be treated as the callback, so to exclude the optional argument you can just pass two.
+
+```javascript
+// No options passed
+$.keyStroke( [68, 70], function(){ console.log( 'Hello World' ); });
+
+// Options included
+$.keyStroke( 83, { modKeys: ['shiftKey'] }, function(){ console.log( 'Hello dog' ); });
+```
 
 **Required**
 * `requiredKeys`: Array of JavaScript keyCodes for your keystroke.  Can be an integer (rather than an array) if you only want to use one keyCode, not including modifier keys passed in the `options` argument.  Order is *not* important, and ordered keystrokes are not supported.  [This](http://www.w3.org/2002/09/tests/keys.html) page is helpful for finding keyCodes.
@@ -28,16 +36,16 @@ saveSomething = function( event ) {
 
 // Save something on ctrl + s
 // s = 83
-$.keyStroke( 83, saveSomething, { modKeys: [ 'ctrlKey' ] } );
+$.keyStroke( 83, { modKeys: [ 'ctrlKey' ] }, saveSomething );
 
 // Do the same thing with Underscore instead of jQuery
-_.keyStroke( 83, saveSomething, { modKeys: [ 'ctrlKey' ] } );
+_.keyStroke( 83, { modKeys: [ 'ctrlKey' ] }, saveSomething );
 ```
 
 You can also use anonymous callbacks.
 
 ```javascript
-$.keyStroke( 83, function() { 'You pressed ALT + S!'; }, { modKeys: [ 'altKey' ] } );
+$.keyStroke( 83, { modKeys: [ 'altKey' ] }, function() { 'You pressed ALT + S!'; } );
 ```
 
 See http://evansolomon.github.com/js-keystroke/ for an example of altering the DOM with a keystroke.
