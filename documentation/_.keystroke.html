@@ -61,7 +61,7 @@
             </div>
             
             <div class="content"><div class='highlight'><pre>_.mixin
-  keyStroke: ( requiredKeys, callback, options = {} ) -&gt;</pre></div></div>
+  keyStroke: ( requiredKeys, options, callback ) -&gt;</pre></div></div>
             
         </li>
         
@@ -72,7 +72,7 @@
               <div class="pilwrap for-h3">
                 <a class="pilcrow" href="#section-3">&#182;</a>
               </div>
-              <h3>Options</h3>
+              <h3>Optional argument</h3>
 <hr>
 
             </div>
@@ -85,6 +85,37 @@
               
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-4">&#182;</a>
+              </div>
+              <p>Make <code>options</code> argument optional but keep <code>callback</code> as the last argument.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    <span class="keyword">if</span> arguments.length <span class="keyword">is</span> <span class="number">2</span>
+      callback = options
+      options = {}</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-5">
+            <div class="annotation">
+              
+              <div class="pilwrap for-h3">
+                <a class="pilcrow" href="#section-5">&#182;</a>
+              </div>
+              <h3>Options</h3>
+<hr>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-6">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-6">&#182;</a>
               </div>
               <ul>
 <li><code>context</code>: The value of <code>this</code> for your callback.</li>
@@ -110,11 +141,11 @@
         </li>
         
         
-        <li id="section-5">
+        <li id="section-7">
             <div class="annotation">
               
               <div class="pilwrap for-h3">
-                <a class="pilcrow" href="#section-5">&#182;</a>
+                <a class="pilcrow" href="#section-7">&#182;</a>
               </div>
               <h3>Setup reusable values</h3>
 <hr>
@@ -124,11 +155,11 @@
         </li>
         
         
-        <li id="section-6">
+        <li id="section-8">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-6">&#182;</a>
+                <a class="pilcrow" href="#section-8">&#182;</a>
               </div>
               <p>Keep track of pressed keys
 A keystroke is internally treated as a group of pressed keys and compared against this array</p>
@@ -140,11 +171,11 @@ A keystroke is internally treated as a group of pressed keys and compared agains
         </li>
         
         
-        <li id="section-7">
+        <li id="section-9">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-7">&#182;</a>
+                <a class="pilcrow" href="#section-9">&#182;</a>
               </div>
               <p>IE compatability
 Old versions of IE use <code>attachEvent</code> instead of <code>addEventListener</code>
@@ -157,11 +188,11 @@ Internally we&#39;ll use <code>eventMethod</code> to bind events</p>
         </li>
         
         
-        <li id="section-8">
+        <li id="section-10">
             <div class="annotation">
               
               <div class="pilwrap for-h3">
-                <a class="pilcrow" href="#section-8">&#182;</a>
+                <a class="pilcrow" href="#section-10">&#182;</a>
               </div>
               <h3>Key listeners</h3>
 <hr>
@@ -171,11 +202,11 @@ Internally we&#39;ll use <code>eventMethod</code> to bind events</p>
         </li>
         
         
-        <li id="section-9">
+        <li id="section-11">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-9">&#182;</a>
+                <a class="pilcrow" href="#section-11">&#182;</a>
               </div>
               <p>Bind <code>keydown</code> listener to <code>document</code></p>
 
@@ -186,11 +217,11 @@ Internally we&#39;ll use <code>eventMethod</code> to bind events</p>
         </li>
         
         
-        <li id="section-10">
+        <li id="section-12">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-10">&#182;</a>
+                <a class="pilcrow" href="#section-12">&#182;</a>
               </div>
               <p>When a key is pressed, add its <code>keyCode</code> to the <code>activeKeys</code> list
 Then remove duplicate entries in the <code>activeKeys</code> list, just in case</p>
@@ -203,11 +234,11 @@ Then remove duplicate entries in the <code>activeKeys</code> list, just in case<
         </li>
         
         
-        <li id="section-11">
+        <li id="section-13">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-11">&#182;</a>
+                <a class="pilcrow" href="#section-13">&#182;</a>
               </div>
               <p>Bind <code>keyup</code> listener to <code>document</code>
 Removes keys from <code>activeKeys</code> when they are released</p>
@@ -220,11 +251,11 @@ Removes keys from <code>activeKeys</code> when they are released</p>
         </li>
         
         
-        <li id="section-12">
+        <li id="section-14">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-12">&#182;</a>
+                <a class="pilcrow" href="#section-14">&#182;</a>
               </div>
               <p>When the window regains focus we have no way to tell what keys
 might be pressed, so clear our queue</p>
@@ -237,11 +268,11 @@ might be pressed, so clear our queue</p>
         </li>
         
         
-        <li id="section-13">
+        <li id="section-15">
             <div class="annotation">
               
               <div class="pilwrap for-h3">
-                <a class="pilcrow" href="#section-13">&#182;</a>
+                <a class="pilcrow" href="#section-15">&#182;</a>
               </div>
               <h3>Activated keystroke helpers</h3>
 <hr>
@@ -251,11 +282,11 @@ might be pressed, so clear our queue</p>
         </li>
         
         
-        <li id="section-14">
+        <li id="section-16">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-14">&#182;</a>
+                <a class="pilcrow" href="#section-16">&#182;</a>
               </div>
               <p>Generic wrapper to execute the <code>callback</code> passed to <code>$.keyStroke</code></p>
 <p>Takes an <code>event</code> object, which will always be the event that triggered the keystroke</p>
@@ -267,11 +298,11 @@ might be pressed, so clear our queue</p>
         </li>
         
         
-        <li id="section-15">
+        <li id="section-17">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-15">&#182;</a>
+                <a class="pilcrow" href="#section-17">&#182;</a>
               </div>
               <p>If the <code>preventDefault</code> option was not disabled, prevent it on the keystroke&#39;s <code>event</code></p>
 <p>This is useful for keystroke&#39;s that might conflict with other browser behavior</p>
@@ -284,11 +315,11 @@ might be pressed, so clear our queue</p>
         </li>
         
         
-        <li id="section-16">
+        <li id="section-18">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-16">&#182;</a>
+                <a class="pilcrow" href="#section-18">&#182;</a>
               </div>
               <p>Run the callback</p>
 <p>Uses the <code>context</code> option if one is present, otherwise uses the context at the time
@@ -303,11 +334,11 @@ might be pressed, so clear our queue</p>
         </li>
         
         
-        <li id="section-17">
+        <li id="section-19">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-17">&#182;</a>
+                <a class="pilcrow" href="#section-19">&#182;</a>
               </div>
               <p>Generic wrapper to check whether or not the keystroke has been activated</p>
 
@@ -318,11 +349,11 @@ might be pressed, so clear our queue</p>
         </li>
         
         
-        <li id="section-18">
+        <li id="section-20">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-18">&#182;</a>
+                <a class="pilcrow" href="#section-20">&#182;</a>
               </div>
               <p>If <code>requiredKeys</code> is an array, use Underscore&#39;s <code>difference()</code> to compare
   it to <code>activeKeys</code></p>
@@ -335,11 +366,11 @@ might be pressed, so clear our queue</p>
         </li>
         
         
-        <li id="section-19">
+        <li id="section-21">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-19">&#182;</a>
+                <a class="pilcrow" href="#section-21">&#182;</a>
               </div>
               <p>If <code>requiredKeys</code> is a single keycode, check that key and the <code>modKeys</code> option</p>
 
@@ -351,11 +382,11 @@ might be pressed, so clear our queue</p>
         </li>
         
         
-        <li id="section-20">
+        <li id="section-22">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-20">&#182;</a>
+                <a class="pilcrow" href="#section-22">&#182;</a>
               </div>
               <p>Make sure the right number of keys are pressed and our target key is in it</p>
 
@@ -367,11 +398,11 @@ might be pressed, so clear our queue</p>
         </li>
         
         
-        <li id="section-21">
+        <li id="section-23">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-21">&#182;</a>
+                <a class="pilcrow" href="#section-23">&#182;</a>
               </div>
               <p>Make sure all modKeys are pressed</p>
 
