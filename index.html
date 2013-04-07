@@ -57,9 +57,9 @@
   <span class="p">};</span>
 
   <span class="c1">// 68 = D</span>
-  <span class="nx">_</span><span class="p">.</span><span class="nx">keyStroke</span><span class="p">(</span> <span class="mi">68</span><span class="p">,</span> <span class="nx">counter</span><span class="p">.</span><span class="nx">decrement</span><span class="p">,</span> <span class="p">{</span> <span class="nx">modKeys</span><span class="o">:</span> <span class="p">[</span><span class="s1">'shiftKey'</span><span class="p">]</span> <span class="p">}</span> <span class="p">);</span>
+  <span class="nx">_</span><span class="p">.</span><span class="nx">keyStroke</span><span class="p">(</span> <span class="mi">68</span><span class="p">,</span> <span class="p">{</span> <span class="nx">modKeys</span><span class="o">:</span> <span class="p">[</span><span class="s1">'shiftKey'</span><span class="p">]</span> <span class="p">}</span><span class="p">,</span> <span class="nx">counter</span><span class="p">.</span><span class="nx">decrement</span> <span class="p">);</span>
   <span class="c1">// 73 = I</span>
-  <span class="nx">_</span><span class="p">.</span><span class="nx">keyStroke</span><span class="p">(</span> <span class="mi">73</span><span class="p">,</span> <span class="nx">counter</span><span class="p">.</span><span class="nx">increment</span><span class="p">,</span> <span class="p">{</span> <span class="nx">modKeys</span><span class="o">:</span> <span class="p">[</span><span class="s1">'shiftKey'</span><span class="p">]</span> <span class="p">}</span> <span class="p">);</span>
+  <span class="nx">_</span><span class="p">.</span><span class="nx">keyStroke</span><span class="p">(</span> <span class="mi">73</span><span class="p">,</span> <span class="p">{</span> <span class="nx">modKeys</span><span class="o">:</span> <span class="p">[</span><span class="s1">'shiftKey'</span><span class="p">]</span> <span class="p">}</span><span class="p">,</span> <span class="nx">counter</span><span class="p">.</span><span class="nx">increment</span> <span class="p">);</span>
 <span class="p">}).</span><span class="nx">call</span><span class="p">();</span>
 </pre></div>
         <h2>Usage</h2>
@@ -96,15 +96,15 @@
 
 <span class="c1">// Save something on ctrl + s</span>
 <span class="c1">// s = 83</span>
-<span class="nx">$</span><span class="p">.</span><span class="nx">keyStroke</span><span class="p">(</span> <span class="mi">83</span><span class="p">,</span> <span class="nx">saveSomething</span><span class="p">,</span> <span class="p">{</span> <span class="nx">modKeys</span><span class="o">:</span> <span class="p">[</span> <span class="s1">'ctrlKey'</span> <span class="p">]</span> <span class="p">}</span> <span class="p">);</span>
+<span class="nx">$</span><span class="p">.</span><span class="nx">keyStroke</span><span class="p">(</span> <span class="mi">83</span><span class="p">,</span> <span class="p">{</span> <span class="nx">modKeys</span><span class="o">:</span> <span class="p">[</span> <span class="s1">'ctrlKey'</span> <span class="p">]</span> <span class="p">}</span><span class="p">,</span> <span class="nx">saveSomething</span> <span class="p">);</span>
 
 <span class="c1">// Do the same thing with Underscore instead of jQuery</span>
-<span class="nx">_</span><span class="p">.</span><span class="nx">keyStroke</span><span class="p">(</span> <span class="mi">83</span><span class="p">,</span> <span class="nx">saveSomething</span><span class="p">,</span> <span class="p">{</span> <span class="nx">modKeys</span><span class="o">:</span> <span class="p">[</span> <span class="s1">'ctrlKey'</span> <span class="p">]</span> <span class="p">}</span> <span class="p">);</span>
+<span class="nx">_</span><span class="p">.</span><span class="nx">keyStroke</span><span class="p">(</span> <span class="mi">83</span><span class="p">,</span> <span class="p">{</span> <span class="nx">modKeys</span><span class="o">:</span> <span class="p">[</span> <span class="s1">'ctrlKey'</span> <span class="p">]</span> <span class="p">}</span><span class="p">,</span> <span class="nx">saveSomething</span> <span class="p">);</span>
 </pre></div>
 
 <p>You can also use anonymous callbacks.</p>
 
-<div class="highlight"><pre><span class="nx">$</span><span class="p">.</span><span class="nx">keyStroke</span><span class="p">(</span> <span class="mi">83</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span> <span class="s1">'You pressed ALT + S!'</span><span class="p">;</span> <span class="p">},</span> <span class="p">{</span> <span class="nx">modKeys</span><span class="o">:</span> <span class="p">[</span> <span class="s1">'altKey'</span> <span class="p">]</span> <span class="p">}</span> <span class="p">);</span>
+<div class="highlight"><pre><span class="nx">$</span><span class="p">.</span><span class="nx">keyStroke</span><span class="p">(</span> <span class="mi">83</span><span class="p">,</span> <span class="p">{</span> <span class="nx">modKeys</span><span class="o">:</span> <span class="p">[</span> <span class="s1">'altKey'</span> <span class="p">]</span> <span class="p">}</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span> <span class="s1">'You pressed ALT + S!'</span><span class="p">;</span> <span class="p">}</span> <span class="p">);</span>
 </pre></div>
 
 <p>See <code>/example/index.php</code> for an example of toggling a request cookie with a keystroke.</p>
