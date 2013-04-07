@@ -20,7 +20,7 @@
 	};
 
 	// 68 = D
-	_.keyStroke( 68, counter.decrement, { modKeys: [ 'shiftKey' ] } );
+	_.keyStroke( 68, { modKeys: [ 'shiftKey' ] }, counter.decrement );
 	// 73 = I
-	_.keyStroke( 73, counter.increment, { modKeys: [ 'shiftKey' ] } );
+	_.keyStroke( 73, { modKeys: [ 'shiftKey' ] }, counter.increment );
 }).call();
